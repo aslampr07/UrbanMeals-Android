@@ -95,7 +95,7 @@ public class HotelSearchableActivity extends AppCompatActivity {
                         searchResultList.setAdapter(new HotelSearchResultAdapter(resultList));
                     }
                 } catch (JSONException e) {
-                    Toast.makeText(HotelSearchableActivity.this, "Unable to Parse JSON", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HotelSearchableActivity.this, "Something not Right", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
