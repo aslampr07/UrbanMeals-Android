@@ -45,7 +45,7 @@
         <activity
             android:name=".activities.MealActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".HotelSearchableActivity">
+        <activity android:name=".activities.HotelSearchableActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
