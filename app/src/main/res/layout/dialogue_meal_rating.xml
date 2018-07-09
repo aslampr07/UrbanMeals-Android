@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    android:paddingLeft="10dp"
+    >
+
+    <TextView
+        android:id="@+id/Meal_ReviewDialogueTasteLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Taste"
+        app:layout_constraintTop_toTopOf="@id/Meal_TasteSeek"
+        app:layout_constraintBottom_toBottomOf="@id/Meal_TasteSeek"
+        />
+
+    <TextView
+        android:id="@+id/Meal_ReviewDialoguePresentationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Presentation"
+        app:layout_constraintTop_toTopOf="@id/Meal_PresentationSeek"
+        app:layout_constraintBottom_toBottomOf="@id/Meal_PresentationSeek"
+        />
+
+    <TextView
+        android:id="@+id/Meal_ReviewDialogueQuantityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantity"
+        app:layout_constraintTop_toTopOf="@id/Meal_QuantitySeek"
+        app:layout_constraintBottom_toBottomOf="@id/Meal_QuantitySeek"
+        app:layout_constraintTop_toBottomOf="@id/Meal_ReviewDialoguePresentationLabel"
+        />
+
+    <SeekBar
+        android:id="@+id/Meal_TasteSeek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:progress="50"
+        android:splitTrack="false"
+
+        android:layout_marginTop="10dp"
+        android:progressDrawable="@drawable/progresstastedrawable"
+        android:thumb="@drawable/reviewseekbarthumb"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/Meal_ReviewDialoguePresentationLabel"
+        />
+
+    <SeekBar
+        android:id="@+id/Meal_PresentationSeek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:progressDrawable="@drawable/progresspresentationdrawable"
+        android:progress="50"
+        android:splitTrack="false"
+
+        android:thumb="@drawable/reviewseekbarthumb"
+        android:layout_marginTop="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/Meal_ReviewDialoguePresentationLabel"
+        app:layout_constraintTop_toBottomOf="@id/Meal_TasteSeek"
+        />
+
+    <SeekBar
+        android:id="@+id/Meal_QuantitySeek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:progressDrawable="@drawable/progressquantitydrawable"
+        android:splitTrack="false"
+        android:progress="50"
+        android:thumb="@drawable/reviewseekbarthumb"
+        android:layout_marginTop="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/Meal_ReviewDialoguePresentationLabel"
+        app:layout_constraintTop_toBottomOf="@id/Meal_PresentationSeek"
+        />
+
+    <ScrollView
+        android:id="@+id/Meal_AddReviewScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/Meal_RatingSubmitButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Meal_QuantitySeek">
+
+        <EditText
+            android:id="@+id/Meal_ReviewEdit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/urbanMealsRed"
+            android:hint="Enter your Review Here" />
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/Meal_RatingSubmitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

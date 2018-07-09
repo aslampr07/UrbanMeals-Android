@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Urban Meals</string>
+    <string name="login">Log in</string>
+    <string name="loginEmailOrPhone">Email/Phone</string>
+    <string name="loginPassword">Password</string>
+    <string name="signupText">Don\'t have an account? SignUp</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="email">Email</string>
+    <string name="mobilenumber">Mobile Number</string>
+    <string name="signup">Sign Up</string>
+    <string name="acceptterms">By signing up, you agree to the Terms and condition &amp; Privacy policy of UrbanMeals.</string>
+    <string name="enterpin">Enter PIN</string>
+    <string name="didyougetpin">Did you get an OTP? Enter it below and get started now</string>
+    <string name="con">Continue</string>
+    <string name="pindidntget">Didn\'t get the pin? \n Resent</string>
+    <string name="hotel_name"><u>Hotel UrbanMeals</u></string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_hotel_searchable_activty">HotelSearchableActivty</string>
+    <string name="title_activity_tempactivity">tempactivity</string>
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?><!-- TODO: Update blank fragment layout -->
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.HotelHeaderFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_cover"
+        android:tint="#b8000000" />
+
+    <TextView
+        android:id="@+id/Hotel_HeaderName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hotel Urban Meals"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Hotel_HeaderPlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kalamassery"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Hotel_HeaderName" />
+
+
+    <Button
+        android:id="@+id/Hotel_HeaderDirectionButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@android:color/transparent"
+        android:foreground="@drawable/location"
+        android:foregroundTint="@color/white"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/Hotel_HeaderCallButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp"
+        android:background="@android:color/transparent"
+        android:foreground="@drawable/ic_phone"
+        android:foregroundTint="@color/white"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/Hotel_HeaderDirectionButton" />
+
+</android.support.constraint.ConstraintLayout>

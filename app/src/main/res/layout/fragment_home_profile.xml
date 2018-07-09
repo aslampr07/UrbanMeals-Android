@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.HomeProfileFragment"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ProgressBar
+        android:id="@+id/Profile_MainLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:indeterminateTint="@color/urbanMealsRed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/Profile_MainScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E6EBEE"
+        android:foreground="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/Profile_DPViewer"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="15dp"
+                android:elevation="4dp"
+                android:src="@drawable/avatar"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="2dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/Profile_EditProfileButton"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/roundedborder"
+                android:text="Edit Profile"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Profile_DPViewer" />
+
+            <TextView
+                android:id="@+id/Profile_ProfileNameView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/raleway_regular"
+                android:textSize="30sp"
+                android:text="Your name here"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Profile_EditProfileButton" />
+
+            <ImageView
+                android:id="@+id/Profile_VerfiedBloggerBadge"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/ic_verified_user_black_24dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/Profile_ProfileNameView"
+                app:layout_constraintLeft_toRightOf="@id/Profile_ProfileNameView"
+                app:layout_constraintTop_toTopOf="@id/Profile_ProfileNameView" />
+
+            <TextView
+                android:id="@+id/Profile_BioView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="13sp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Profile_PhotoViewerRecycler" />
+
+            <TextView
+                android:id="@+id/Profile_WebsiteView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="2dp"
+                android:textColor="#0B0080"
+                android:textSize="13sp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Profile_BioView" />
+
+            <View
+                android:id="@+id/Profile_PhotoReviewDivider"
+                android:layout_width="3dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="#dedace"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Profile_ProfileNameView" />
+
+            <TextView
+                android:id="@+id/Profile_PhotoCountView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_regular"
+                android:text="0"
+                android:textSize="25sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/Profile_PhotoReviewDivider"
+                app:layout_constraintTop_toTopOf="@id/Profile_PhotoReviewDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Photos"
+                android:textColor="@android:color/black"
+                app:layout_constraintLeft_toLeftOf="@id/Profile_PhotoCountView"
+                app:layout_constraintRight_toRightOf="@id/Profile_PhotoCountView"
+                app:layout_constraintTop_toBottomOf="@id/Profile_PhotoCountView" />
+
+            <TextView
+                android:id="@+id/Profile_ReviewCountView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_regular"
+                android:text="0"
+                android:textSize="25sp"
+                app:layout_constraintLeft_toRightOf="@id/Profile_PhotoReviewDivider"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/Profile_PhotoReviewDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reviews"
+                android:textColor="@android:color/black"
+                app:layout_constraintLeft_toLeftOf="@id/Profile_ReviewCountView"
+                app:layout_constraintRight_toRightOf="@id/Profile_ReviewCountView"
+                app:layout_constraintTop_toBottomOf="@id/Profile_ReviewCountView" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/Profile_PhotoViewerRecycler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Profile_PhotoReviewDivider" />
+
+            <LinearLayout
+                android:id="@+id/Profile_NoMediaNotice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Profile_PhotoReviewDivider">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_camera_black_24dp"
+                    android:tint="@color/urbanMealsGrey" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No Photos Yet! Please Upload a photo to see here" />
+            </LinearLayout>
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
+
