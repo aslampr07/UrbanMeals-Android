@@ -1,3 +1,9 @@
+*.apk
+*.ap_
+
+#Release directory
+/app/release
+
 *.iml
 .gradle
 /local.properties
