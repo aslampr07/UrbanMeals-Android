@@ -116,7 +116,7 @@ public class HomeHotelListAdapter extends RecyclerView.Adapter<HomeHotelListAdap
             ratingChart.getDescription().setEnabled(false);
             ratingChart.getLegend().setEnabled(false);
             ratingChart.setHoleRadius(75);
-            ratingChart.setCenterTextSize(15);
+            ratingChart.setCenterTextSize(13);
             ratingChart.setTouchEnabled(false);
 
             itemView.setOnClickListener(new View.OnClickListener() {
