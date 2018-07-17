@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.urbanmeals.client.urbanmeals.PromotionBannerFragment;
 import com.urbanmeals.client.urbanmeals.data.PromotionBanner;
@@ -11,7 +12,7 @@ import com.urbanmeals.client.urbanmeals.data.PromotionBanner;
 import java.util.ArrayList;
 
 
-public class PromotionBannerFragmentAdapter extends FragmentPagerAdapter {
+public class PromotionBannerFragmentAdapter extends FragmentStatePagerAdapter {
 
     private ArrayList<PromotionBanner> list;
 

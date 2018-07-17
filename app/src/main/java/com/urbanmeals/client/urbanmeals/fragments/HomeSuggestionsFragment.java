@@ -40,7 +40,6 @@ import org.json.JSONStringer;
 
 import java.util.ArrayList;
 
-import kotlin.jvm.internal.StringCompanionObject;
 
 
 /**
@@ -188,7 +187,9 @@ public class HomeSuggestionsFragment extends Fragment {
                                     item.setUrl(responseArray.getJSONObject(i).getString("bannerURL"));
                                     bannerList.add(item);
                                 }
-                                bannerViewPager.setAdapter(new PromotionBannerFragmentAdapter(getFragmentManager(), bannerList));
+                                //passing getChildFragmentManager instead of getFragmentManager solved the blank issue.
+                                //If we use getFragmentManager the viewpager items will be blank next time reloading it.
+                                bannerViewPager.setAdapter(new PromotionBannerFragmentAdapter(getChildFragmentManager(), bannerList));
                             }
                         } catch (JSONException e) {
                             Toast.makeText(getContext(), "Oops! something is not right", Toast.LENGTH_SHORT).show();
@@ -200,9 +201,7 @@ public class HomeSuggestionsFragment extends Fragment {
                         Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-
                 Volley.newRequestQueue(getContext()).add(bannerRequest);
-
             }
         });
     }

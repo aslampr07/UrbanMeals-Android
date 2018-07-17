@@ -52,7 +52,6 @@ public class PromotionBannerFragment extends Fragment {
         });
 
         Volley.newRequestQueue(getContext()).add(bannerRequest);
-
         return view;
     }
 
