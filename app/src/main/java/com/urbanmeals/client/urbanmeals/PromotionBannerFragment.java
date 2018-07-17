@@ -4,6 +4,8 @@ package com.urbanmeals.client.urbanmeals;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +43,12 @@ public class PromotionBannerFragment extends Fragment {
         ImageRequest bannerRequest = new ImageRequest(url, new Response.Listener<Bitmap>() {
             @Override
             public void onResponse(Bitmap response) {
-                bannerImage.setImageBitmap(response);
+
+                //To convert the image to 'Rounded' bitmap drawable.
+                RoundedBitmapDrawable drawable = RoundedBitmapDrawableFactory.create(getResources(), response);
+                drawable.setCornerRadius(50);
+
+                bannerImage.setImageDrawable(drawable);
             }
         }, 0, 0, ImageView.ScaleType.CENTER_CROP, Bitmap.Config.RGB_565, new Response.ErrorListener() {
             @Override
