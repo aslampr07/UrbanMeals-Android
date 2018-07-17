@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,13 +18,17 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.urbanmeals.client.urbanmeals.R;
 import com.urbanmeals.client.urbanmeals.activities.HomeActivity;
+import com.urbanmeals.client.urbanmeals.adapters.PromotionBannerFragmentAdapter;
 import com.urbanmeals.client.urbanmeals.adapters.SuggestionMainListAdapter;
+import com.urbanmeals.client.urbanmeals.data.PromotionBanner;
 import com.urbanmeals.client.urbanmeals.data.SuggestionMainListItem;
 import com.urbanmeals.client.urbanmeals.data.SuggestionSubListItem;
 import com.urbanmeals.client.urbanmeals.interfaces.LocationReadyListener;
@@ -35,6 +40,8 @@ import org.json.JSONStringer;
 
 import java.util.ArrayList;
 
+import kotlin.jvm.internal.StringCompanionObject;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,10 +49,10 @@ import java.util.ArrayList;
 public class HomeSuggestionsFragment extends Fragment {
 
 
-    String token;
-    RecyclerView suggestionMainRecycler;
-
-    ProgressBar mainLoader;
+    private String token;
+    private RecyclerView suggestionMainRecycler;
+    private ProgressBar mainLoader;
+    private ViewPager bannerViewPager;
 
     public HomeSuggestionsFragment() {
         // Required empty public constructor
@@ -73,6 +80,7 @@ public class HomeSuggestionsFragment extends Fragment {
 
         suggestionMainRecycler = view.findViewById(R.id.Suggestion_MainRecycler);
         mainLoader = view.findViewById(R.id.Suggestion_MainLoading);
+        bannerViewPager = view.findViewById(R.id.Suggestion_BannerPager);
 
         suggestionMainRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -160,6 +168,41 @@ public class HomeSuggestionsFragment extends Fragment {
                     }
                 });
                 Volley.newRequestQueue(getContext()).add(suggestionRequest);
+
+                Uri.Builder bannerURL = new Uri.Builder();
+                bannerURL.scheme("http")
+                        .encodedAuthority("urbanmeals.in/api/restaurant/1.1/promotion/banner")
+                        .appendQueryParameter("token", token);
+                StringRequest bannerRequest = new StringRequest(bannerURL.toString(), new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String JsonResponse) {
+                        try {
+                            JSONObject response = new JSONObject(JsonResponse);
+                            if(response.getString("status").equals("success")){
+
+                                JSONArray responseArray = response.getJSONArray("result");
+                                ArrayList<PromotionBanner> bannerList = new ArrayList<>();
+                                for(int i = 0; i < responseArray.length(); i++){
+                                    PromotionBanner item = new PromotionBanner();
+                                    item.setHotelCode(responseArray.getJSONObject(i).getString("code"));
+                                    item.setUrl(responseArray.getJSONObject(i).getString("bannerURL"));
+                                    bannerList.add(item);
+                                }
+                                bannerViewPager.setAdapter(new PromotionBannerFragmentAdapter(getFragmentManager(), bannerList));
+                            }
+                        } catch (JSONException e) {
+                            Toast.makeText(getContext(), "Oops! something is not right", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                Volley.newRequestQueue(getContext()).add(bannerRequest);
+
             }
         });
     }
