@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -52,6 +53,7 @@ public class HomeSuggestionsFragment extends Fragment {
     private RecyclerView suggestionMainRecycler;
     private ProgressBar mainLoader;
     private ViewPager bannerViewPager;
+    private TabLayout dottedTab;
 
     public HomeSuggestionsFragment() {
         // Required empty public constructor
@@ -80,6 +82,7 @@ public class HomeSuggestionsFragment extends Fragment {
         suggestionMainRecycler = view.findViewById(R.id.Suggestion_MainRecycler);
         mainLoader = view.findViewById(R.id.Suggestion_MainLoading);
         bannerViewPager = view.findViewById(R.id.Suggestion_BannerPager);
+        dottedTab = view.findViewById(R.id.Suggestion_TabDotted);
 
         suggestionMainRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -190,6 +193,11 @@ public class HomeSuggestionsFragment extends Fragment {
                                 //passing getChildFragmentManager instead of getFragmentManager solved the blank issue.
                                 //If we use getFragmentManager the viewpager items will be blank next time reloading it.
                                 bannerViewPager.setAdapter(new PromotionBannerFragmentAdapter(getChildFragmentManager(), bannerList));
+                                dottedTab.setupWithViewPager(bannerViewPager);
+                                if(bannerList.size() == 0){
+                                    bannerViewPager.setVisibility(View.GONE);
+                                    dottedTab.setVisibility(View.GONE);
+                                }
                             }
                         } catch (JSONException e) {
                             Toast.makeText(getContext(), "Oops! something is not right", Toast.LENGTH_SHORT).show();

@@ -36,7 +36,6 @@ public class PromotionBannerFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_promotion_banner, container, false);
 
         bannerImage = view.findViewById(R.id.Promotion_BannerImage);
-
         String url = "http://urbanmeals.in" + getArguments().getString("bannerURL");
 
         ImageRequest bannerRequest = new ImageRequest(url, new Response.Listener<Bitmap>() {
