@@ -7,7 +7,6 @@
     >
 
     <TextView
-        android:id="@+id/Meal_ReviewDialogueTasteLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Taste"
@@ -25,7 +24,6 @@
         />
 
     <TextView
-        android:id="@+id/Meal_ReviewDialogueQuantityLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Quantity"
@@ -79,7 +77,6 @@
         />
 
     <ScrollView
-        android:id="@+id/Meal_AddReviewScroll"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/Meal_RatingSubmitButton"
