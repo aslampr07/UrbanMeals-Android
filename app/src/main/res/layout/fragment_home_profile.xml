@@ -42,7 +42,7 @@
                 android:layout_height="100dp"
                 android:layout_marginTop="15dp"
                 android:elevation="4dp"
-                android:src="@drawable/avatar"
+                android:src="@drawable/icon_avatar"
                 app:civ_border_color="@color/white"
                 app:civ_border_width="2dp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -54,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/roundedborder"
+                android:background="@drawable/background_roundedborder"
                 android:text="Edit Profile"
                 android:textAllCaps="false"
                 android:textSize="12sp"
@@ -79,7 +79,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="5dp"
-                android:src="@drawable/ic_verified_user_black_24dp"
+                android:src="@drawable/icon_ic_verified_user_black_24dp"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@id/Profile_ProfileNameView"
                 app:layout_constraintLeft_toRightOf="@id/Profile_ProfileNameView"
@@ -185,7 +185,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/ic_camera_black_24dp"
+                    android:src="@drawable/icon_ic_camera_black_24dp"
                     android:tint="@color/urbanMealsGrey" />
 
                 <TextView

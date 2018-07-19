@@ -13,7 +13,7 @@
         android:layout_marginBottom="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="@drawable/roundlogo"
+        android:background="@drawable/background_roundlogo"
         android:elevation="10dp"
         android:padding="10dp"
         android:src="@drawable/logo"

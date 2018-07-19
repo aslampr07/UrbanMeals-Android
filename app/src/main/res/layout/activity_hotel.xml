@@ -195,7 +195,7 @@
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:src="@drawable/locationsvg"
+                    android:src="@drawable/icon_locationsvg"
                     android:tint="@color/urbanMealsRed"
                     app:layout_constraintBottom_toTopOf="@id/Hotel_CardDirectionButton"
                     app:layout_constraintLeft_toLeftOf="@id/Hotel_CardDirectionButton"
@@ -206,7 +206,7 @@
                     android:id="@+id/Hotel_CardDirectionButton"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:background="@drawable/locationbutton"
+                    android:background="@drawable/background_locationbutton"
                     android:text="Directions"
                     android:textAllCaps="false"
                     app:layout_constraintBottom_toBottomOf="parent"

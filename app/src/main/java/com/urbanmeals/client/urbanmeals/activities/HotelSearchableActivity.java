@@ -51,7 +51,7 @@ public class HotelSearchableActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
-            //To save the search suggestions.
+            //To save the icon_search suggestions.
             SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this, HotelSearchSuggestionProvider.AUTHORITY, HotelSearchSuggestionProvider.MODE);
             suggestions.saveRecentQuery(query, null);
             search(query);
@@ -71,7 +71,7 @@ public class HotelSearchableActivity extends AppCompatActivity {
 
         Uri.Builder url = new Uri.Builder();
         url.scheme("http")
-                .encodedAuthority("urbanmeals.in/api/1.0/restaurant/search/suggestion")
+                .encodedAuthority("urbanmeals.in/api/1.0/restaurant/icon_search/suggestion")
                 .appendQueryParameter("query", query)
                 .appendQueryParameter("token", token)
                 .build();

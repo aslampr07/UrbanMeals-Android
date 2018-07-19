@@ -50,15 +50,15 @@ public class HomeHotelListAdapter extends RecyclerView.Adapter<HomeHotelListAdap
         holder.hotelName.setText(hotelList.get(position).getHotelName());
         holder.distance.setText(String.valueOf(hotelList.get(position).getDistance()) + " KM");
         if (!hotelList.get(position).getOpened()) {
-            holder.statusImage.setImageResource(R.drawable.close);
+            holder.statusImage.setImageResource(R.drawable.icon_close);
         } else {
-            holder.statusImage.setImageResource(R.drawable.open);
+            holder.statusImage.setImageResource(R.drawable.icon_open);
 
         }
         if (hotelList.get(position).getIsVeg().equals("V")) {
-            holder.hotelType.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.veg));
+            holder.hotelType.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.icon_veg));
         } else if (hotelList.get(position).getIsVeg().equals("N")) {
-            holder.hotelType.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.nonveg));
+            holder.hotelType.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.icon_nonveg));
         }
 
         Double rating = hotelList.get(position).getRating();

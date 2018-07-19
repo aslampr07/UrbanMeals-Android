@@ -4,19 +4,19 @@
     <item
         android:id="@+id/Home_NavigationSearch"
         android:enabled="true"
-        android:icon="@drawable/search"
+        android:icon="@drawable/icon_search"
         android:title="Explore"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/Home_NavigationHome"
         android:enabled="true"
-        android:icon="@drawable/location"
+        android:icon="@drawable/icon_location"
         android:title="Home"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/Home_NavigationProfile"
         android:enabled="true"
-        android:icon="@drawable/person"
+        android:icon="@drawable/icon_person"
         android:title="Profile"
         app:showAsAction="ifRoom" />
 </menu>

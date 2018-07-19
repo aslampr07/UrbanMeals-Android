@@ -33,7 +33,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/roundlogo"
+            android:background="@drawable/background_roundlogo"
             android:elevation="5dp"
             android:padding="5dp"
             android:src="@drawable/logo"
