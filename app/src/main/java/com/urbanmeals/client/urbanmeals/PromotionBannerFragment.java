@@ -1,6 +1,7 @@
 package com.urbanmeals.client.urbanmeals;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.Volley;
+import com.urbanmeals.client.urbanmeals.activities.HotelActivity;
 
 
 /**
@@ -38,6 +40,7 @@ public class PromotionBannerFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_promotion_banner, container, false);
 
         bannerImage = view.findViewById(R.id.Promotion_BannerImage);
+        hotelCode = getArguments().getString("hotelCode");
         String url = "http://urbanmeals.in" + getArguments().getString("bannerURL");
 
         ImageRequest bannerRequest = new ImageRequest(url, new Response.Listener<Bitmap>() {
@@ -58,6 +61,16 @@ public class PromotionBannerFragment extends Fragment {
         });
 
         Volley.newRequestQueue(getContext()).add(bannerRequest);
+
+        bannerImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(), HotelActivity.class);
+                i.putExtra("hotelCode", hotelCode);
+                startActivity(i);
+            }
+        });
+
         return view;
     }
 
