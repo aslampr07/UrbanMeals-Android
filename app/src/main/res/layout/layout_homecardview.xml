@@ -50,10 +50,9 @@
             android:singleLine="true"
             android:ellipsize="end"
             android:scrollHorizontally="true"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
             app:layout_constraintLeft_toRightOf="@id/HomeCard_GraphSeparator"
-            app:layout_constraintEnd_toStartOf="@id/HomeViewMenuButton"
             app:layout_constraintTop_toTopOf="parent"
             />
 
@@ -67,7 +66,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginBottom="10dp"
             app:layout_constraintStart_toEndOf="@id/HomeCard_GraphSeparator"
-            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             />
 
         <ImageView
