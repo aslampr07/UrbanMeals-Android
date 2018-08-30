@@ -1,5 +1,6 @@
 package com.urbanmeals.client.urbanmeals.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -15,6 +16,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -59,7 +61,7 @@ import okhttp3.RequestBody;
 
 public class MealActivity extends AppCompatActivity {
 
-    private static final int VIEWGALLERY = 123;
+    private static final int VIEW_GALLERY = 123;
     Button ratingDialogueOpenButton;
     ImageButton addImageButton;
     TabLayout reviewTab;
@@ -71,11 +73,10 @@ public class MealActivity extends AppCompatActivity {
     PieChart presentationChart;
     PieChart quantityChart;
     RecyclerView photoRecycler;
-    ProgressBar mainProgressRing;
-    ScrollView mainScrollView;
     private String itemCode;
     private String token;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,8 +96,7 @@ public class MealActivity extends AppCompatActivity {
         addImageButton = findViewById(R.id.Meal_AddPhotoButton);
         ratingDialogueOpenButton = findViewById(R.id.Meal_SubmitRatingButton);
         photoRecycler = findViewById(R.id.Meal_PhotoList);
-        mainProgressRing = findViewById(R.id.Meal_MainLoadingRing);
-        mainScrollView = findViewById(R.id.Meal_MainScrollView);
+        //mainProgressRing = findViewById(R.id.Meal_MainLoadingRing);
 
         tasteChart.getDescription().setEnabled(false);
         tasteChart.getLegend().setEnabled(false);
@@ -152,8 +152,7 @@ public class MealActivity extends AppCompatActivity {
                             price = price + "₹ " + amount + " " + description + " ";
                         }
                         priceView.setText(price);
-                        mainProgressRing.setVisibility(View.GONE);
-                        mainScrollView.setForeground(null);
+//                        mainProgressRing.setVisibility(View.GONE);
                     }
                 } catch (JSONException e) {
                     Toast.makeText(MealActivity.this, "Error Parsing Json", Toast.LENGTH_SHORT).show();
@@ -178,14 +177,14 @@ public class MealActivity extends AppCompatActivity {
         }
         if (view.getId() == addImageButton.getId()) {
             Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            startActivityForResult(i, VIEWGALLERY);
+            startActivityForResult(i, VIEW_GALLERY);
         }
     }
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == VIEWGALLERY && resultCode == RESULT_OK) {
+        if (requestCode == VIEW_GALLERY && resultCode == RESULT_OK) {
             UCrop.Options cropOptions = new UCrop.Options();
             cropOptions.setCompressionFormat(Bitmap.CompressFormat.JPEG);
             cropOptions.setFreeStyleCropEnabled(true);
