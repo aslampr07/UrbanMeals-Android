@@ -8,9 +8,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.TooltipCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,8 +29,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.urbanmeals.client.urbanmeals.activities.EditProfileActivity;
 import com.urbanmeals.client.urbanmeals.R;
+import com.urbanmeals.client.urbanmeals.activities.EditProfileActivity;
 import com.urbanmeals.client.urbanmeals.adapters.ProfilePhotoListAdapter;
 import com.urbanmeals.client.urbanmeals.data.Profile;
 
@@ -108,10 +109,7 @@ public class HomeProfileFragment extends Fragment {
 
         TooltipCompat.setTooltipText(verificationBadge, "Urban Meals Verified Blogger");
 
-        imageListRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-
-        //This is to make profile Update every time.
-        profile = null;
+        imageListRecycler.setLayoutManager(new GridLayoutManager(getContext(), 3));
 
         if (profile == null) {
             Uri.Builder url = new Uri.Builder();
@@ -146,6 +144,7 @@ public class HomeProfileFragment extends Fragment {
                         }
                         profile.setImages(images);
                         imageListRecycler.setAdapter(new ProfilePhotoListAdapter(profile.getImages()));
+                        Log.v("urbanmeals", imageListRecycler.getWidth()+"");
 
                         profile.setBlogger((response.getString("blogger").equals("Y")));
 
