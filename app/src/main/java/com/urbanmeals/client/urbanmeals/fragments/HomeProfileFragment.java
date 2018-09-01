@@ -144,7 +144,6 @@ public class HomeProfileFragment extends Fragment {
                         }
                         profile.setImages(images);
                         imageListRecycler.setAdapter(new ProfilePhotoListAdapter(profile.getImages()));
-                        Log.v("urbanmeals", imageListRecycler.getWidth()+"");
 
                         profile.setBlogger((response.getString("blogger").equals("Y")));
 
@@ -166,7 +165,6 @@ public class HomeProfileFragment extends Fragment {
                             websiteView.setVisibility(View.VISIBLE);
                             websiteView.setText(profile.getWebsite());
                         }
-
 
                         String url = "http://urbanmeals.in" + profile.getDpUrl();
 
@@ -212,6 +210,18 @@ public class HomeProfileFragment extends Fragment {
             } else {
                 verificationBadge.setVisibility(View.GONE);
             }
+            if (!profile.getBio().equals("")) {
+                bioView.setVisibility(View.VISIBLE);
+                bioView.setText(profile.getBio());
+            }
+
+            if (!profile.getWebsite().equals("")) {
+                websiteView.setVisibility(View.VISIBLE);
+                websiteView.setText(profile.getWebsite());
+            }
+
+            mainLoading.setVisibility(View.GONE);
+            mainScroll.setForeground(null);
         }
     }
 }
