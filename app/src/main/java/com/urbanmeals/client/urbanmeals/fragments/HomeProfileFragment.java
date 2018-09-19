@@ -122,67 +122,71 @@ public class HomeProfileFragment extends Fragment {
                 public void onResponse(String JsonResponse) {
                     profile = new Profile();
                     try {
-                        JSONObject response = new JSONObject(JsonResponse);
-                        profile.setName(response.getString("firstName") + " " + response.getString("lastName"));
-                        nameView.setText(profile.getName());
+                        JSONObject result = new JSONObject(JsonResponse);
 
-                        JSONObject count = response.getJSONObject("count");
-                        profile.setPhotoCount(count.getString("photos"));
-                        profile.setReviewCount(count.getString("reviews"));
-                        profile.setDpUrl(response.getString("displayPicture"));
-                        photoCountView.setText(profile.getPhotoCount());
-                        reviewCountView.setText(profile.getReviewCount());
+                        if(result.getString("status").equals("success")) {
+                            JSONObject response = result.getJSONObject("result");
+                            profile.setName(response.getString("firstName") + " " + response.getString("lastName"));
+                            nameView.setText(profile.getName());
 
-                        JSONArray imageURLs = response.getJSONArray("images");
-                        //To set the no media Notice
-                        if (imageURLs.length() > 0) {
-                            noMediaNotice.setVisibility(View.GONE);
-                        }
-                        ArrayList<String> images = new ArrayList<>();
-                        for (int i = 0; i < imageURLs.length(); i++) {
-                            images.add(imageURLs.getString(i));
-                        }
-                        profile.setImages(images);
-                        imageListRecycler.setAdapter(new ProfilePhotoListAdapter(profile.getImages()));
+                            JSONObject count = response.getJSONObject("count");
+                            profile.setPhotoCount(count.getString("photos"));
+                            profile.setReviewCount(count.getString("reviews"));
+                            profile.setDpUrl(response.getString("displayPicture"));
+                            photoCountView.setText(profile.getPhotoCount());
+                            reviewCountView.setText(profile.getReviewCount());
 
-                        profile.setBlogger((response.getString("blogger").equals("Y")));
-
-                        if (profile.getBlogger()) {
-                            verificationBadge.setVisibility(View.VISIBLE);
-                        } else {
-                            verificationBadge.setVisibility(View.GONE);
-                        }
-
-                        profile.setBio(response.getString("bio"));
-                        profile.setWebsite(response.getString("website"));
-
-                        if (!profile.getBio().equals("")) {
-                            bioView.setVisibility(View.VISIBLE);
-                            bioView.setText(profile.getBio());
-                        }
-
-                        if (!profile.getWebsite().equals("")) {
-                            websiteView.setVisibility(View.VISIBLE);
-                            websiteView.setText(profile.getWebsite());
-                        }
-
-                        String url = "http://urbanmeals.in" + profile.getDpUrl();
-
-                        ImageRequest dpRequest = new ImageRequest(url, new Response.Listener<Bitmap>() {
-                            @Override
-                            public void onResponse(Bitmap response) {
-                                proPicViewer.setImageBitmap(response);
+                            JSONArray imageURLs = response.getJSONArray("images");
+                            //To set the no media Notice
+                            if (imageURLs.length() > 0) {
+                                noMediaNotice.setVisibility(View.GONE);
                             }
-                        }, 0, 0, ImageView.ScaleType.CENTER_CROP, Bitmap.Config.RGB_565, new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(getContext(), "dp loading failed", Toast.LENGTH_SHORT).show();
+                            ArrayList<String> images = new ArrayList<>();
+                            for (int i = 0; i < imageURLs.length(); i++) {
+                                images.add(imageURLs.getString(i));
                             }
-                        });
+                            profile.setImages(images);
+                            imageListRecycler.setAdapter(new ProfilePhotoListAdapter(profile.getImages()));
 
-                        Volley.newRequestQueue(getContext()).add(dpRequest);
-                        mainLoading.setVisibility(View.GONE);
-                        mainScroll.setForeground(null);
+                            profile.setBlogger((response.getString("blogger").equals("Y")));
+
+                            if (profile.getBlogger()) {
+                                verificationBadge.setVisibility(View.VISIBLE);
+                            } else {
+                                verificationBadge.setVisibility(View.GONE);
+                            }
+
+                            profile.setBio(response.getString("bio"));
+                            profile.setWebsite(response.getString("website"));
+
+                            if (!profile.getBio().equals("")) {
+                                bioView.setVisibility(View.VISIBLE);
+                                bioView.setText(profile.getBio());
+                            }
+
+                            if (!profile.getWebsite().equals("")) {
+                                websiteView.setVisibility(View.VISIBLE);
+                                websiteView.setText(profile.getWebsite());
+                            }
+
+                            String url = "http://urbanmeals.in" + profile.getDpUrl();
+
+                            ImageRequest dpRequest = new ImageRequest(url, new Response.Listener<Bitmap>() {
+                                @Override
+                                public void onResponse(Bitmap response) {
+                                    proPicViewer.setImageBitmap(response);
+                                }
+                            }, 0, 0, ImageView.ScaleType.CENTER_CROP, Bitmap.Config.RGB_565, new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Toast.makeText(getContext(), "dp loading failed", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                            Volley.newRequestQueue(getContext()).add(dpRequest);
+                            mainLoading.setVisibility(View.GONE);
+                            mainScroll.setForeground(null);
+                        }
 
                     } catch (JSONException e) {
                         Toast.makeText(getActivity(), "Unable to Parse JSON", Toast.LENGTH_SHORT).show();
