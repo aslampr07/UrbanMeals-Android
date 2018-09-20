@@ -90,28 +90,31 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onResponse(String jsonResponse) {
                 try {
-                    JSONObject response = new JSONObject(jsonResponse);
-                    firstNameEdit.setText(response.getString("firstName"));
-                    lastNameEdit.setText(response.getString("lastName"));
-                    websiteEdit.setText(response.getString("website"));
-                    bioEdit.setText(response.getString("bio"));
+                    JSONObject result = new JSONObject(jsonResponse);
+                    if(result.getString("status").equals("success")) {
 
-                    String url = "http://urbanmeals.in" + response.getString("displayPicture");
+                        JSONObject response = result.getJSONObject("result");
+                        firstNameEdit.setText(response.getString("firstName"));
+                        lastNameEdit.setText(response.getString("lastName"));
+                        websiteEdit.setText(response.getString("website"));
+                        bioEdit.setText(response.getString("bio"));
 
-                    ImageRequest dpRequest = new ImageRequest(url, new Response.Listener<Bitmap>() {
-                        @Override
-                        public void onResponse(Bitmap response) {
-                            dpImageView.setImageBitmap(response);
-                        }
-                    }, 0, 0, ImageView.ScaleType.CENTER_CROP, Bitmap.Config.RGB_565, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(EditProfileActivity.this, "dp loading failed", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                        String url = "http://urbanmeals.in" + response.getString("displayPicture");
 
-                    Volley.newRequestQueue(EditProfileActivity.this).add(dpRequest);
+                        ImageRequest dpRequest = new ImageRequest(url, new Response.Listener<Bitmap>() {
+                            @Override
+                            public void onResponse(Bitmap response) {
+                                dpImageView.setImageBitmap(response);
+                            }
+                        }, 0, 0, ImageView.ScaleType.CENTER_CROP, Bitmap.Config.RGB_565, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(EditProfileActivity.this, "dp loading failed", Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
+                        Volley.newRequestQueue(EditProfileActivity.this).add(dpRequest);
+                    }
                 } catch (JSONException e) {
                     Toast.makeText(EditProfileActivity.this, "Something not right", Toast.LENGTH_SHORT).show();
                 }

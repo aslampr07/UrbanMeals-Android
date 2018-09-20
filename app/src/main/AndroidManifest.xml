@@ -60,7 +60,7 @@
             android:name=".HotelSearchSuggestionProvider"
             android:authorities="com.urbanmeals.client.urbanmeals.HotelSearchSuggestionProvider" />
 
-        <activity android:name=".activities.EditProfileActivity"></activity>
+        <activity android:name=".activities.EditProfileActivity"/>
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
