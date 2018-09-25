@@ -3,4 +3,4 @@
     android:hint="Enter a hotel Name"
     android:label="@string/app_name"
     android:searchSuggestAuthority="com.urbanmeals.client.urbanmeals.HotelSearchSuggestionProvider"
-    android:searchSuggestSelection=" ?"></searchable>
+    android:searchSuggestSelection=" ?" />

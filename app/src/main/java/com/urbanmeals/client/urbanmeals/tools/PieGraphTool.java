@@ -20,8 +20,6 @@ public class PieGraphTool {
         colors.add(Color.parseColor("#f3f4f7"));
         dataSet.setColors(colors);
         dataSet.setDrawValues(false);
-        PieData data = new PieData(dataSet);
-
-        return data;
+        return new PieData(dataSet);
     }
 }
