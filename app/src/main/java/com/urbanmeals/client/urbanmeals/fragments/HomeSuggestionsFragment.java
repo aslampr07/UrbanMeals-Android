@@ -7,10 +7,7 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,15 +16,12 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.urbanmeals.client.urbanmeals.R;
 import com.urbanmeals.client.urbanmeals.activities.HomeActivity;
-import com.urbanmeals.client.urbanmeals.adapters.PromotionBannerFragmentAdapter;
 import com.urbanmeals.client.urbanmeals.adapters.SuggestionMainListAdapter;
 import com.urbanmeals.client.urbanmeals.data.PromotionBanner;
 import com.urbanmeals.client.urbanmeals.data.SuggestionMainListItem;
@@ -37,7 +31,6 @@ import com.urbanmeals.client.urbanmeals.interfaces.LocationReadyListener;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONStringer;
 
 import java.util.ArrayList;
 
@@ -52,8 +45,6 @@ public class HomeSuggestionsFragment extends Fragment {
     private String token;
     private RecyclerView suggestionMainRecycler;
     private ProgressBar mainLoader;
-    private ViewPager bannerViewPager;
-    private TabLayout dottedTab;
 
     public HomeSuggestionsFragment() {
         // Required empty public constructor
@@ -81,8 +72,6 @@ public class HomeSuggestionsFragment extends Fragment {
 
         suggestionMainRecycler = view.findViewById(R.id.Suggestion_MainRecycler);
         mainLoader = view.findViewById(R.id.Suggestion_MainLoading);
-        bannerViewPager = view.findViewById(R.id.Suggestion_BannerPager);
-        dottedTab = view.findViewById(R.id.Suggestion_TabDotted);
 
         suggestionMainRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -189,14 +178,6 @@ public class HomeSuggestionsFragment extends Fragment {
                                     item.setHotelCode(responseArray.getJSONObject(i).getString("code"));
                                     item.setUrl(responseArray.getJSONObject(i).getString("bannerURL"));
                                     bannerList.add(item);
-                                }
-                                //passing getChildFragmentManager instead of getFragmentManager solved the blank issue.
-                                //If we use getFragmentManager the viewpager items will be blank next time reloading it.
-                                bannerViewPager.setAdapter(new PromotionBannerFragmentAdapter(getChildFragmentManager(), bannerList));
-                                dottedTab.setupWithViewPager(bannerViewPager);
-                                if(bannerList.size() == 0){
-                                    bannerViewPager.setVisibility(View.GONE);
-                                    dottedTab.setVisibility(View.GONE);
                                 }
                             }
                         } catch (JSONException e) {
