@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.HomeSuggestionsFragment">
     <android.support.constraint.ConstraintLayout
@@ -19,7 +18,6 @@
         android:id="@+id/Suggestion_MainRecycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:background="#e9eaee"
         app:layout_constraintTop_toBottomOf="@id/Suggestion_HotelIconList"
         app:layout_constraintRight_toRightOf="parent"
