@@ -22,6 +22,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.urbanmeals.client.urbanmeals.R;
 import com.urbanmeals.client.urbanmeals.activities.HomeActivity;
+import com.urbanmeals.client.urbanmeals.adapters.SuggestionHotelIconListAdapter;
 import com.urbanmeals.client.urbanmeals.adapters.SuggestionMainListAdapter;
 import com.urbanmeals.client.urbanmeals.data.PromotionBanner;
 import com.urbanmeals.client.urbanmeals.data.SuggestionMainListItem;
@@ -45,6 +46,7 @@ public class HomeSuggestionsFragment extends Fragment {
     private String token;
     private RecyclerView suggestionMainRecycler;
     private ProgressBar mainLoader;
+    private RecyclerView hotelIconListRecyler;
 
     public HomeSuggestionsFragment() {
         // Required empty public constructor
@@ -72,8 +74,10 @@ public class HomeSuggestionsFragment extends Fragment {
 
         suggestionMainRecycler = view.findViewById(R.id.Suggestion_MainRecycler);
         mainLoader = view.findViewById(R.id.Suggestion_MainLoading);
+        hotelIconListRecyler = view.findViewById(R.id.Suggestion_HotelIconList);
 
         suggestionMainRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        hotelIconListRecyler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         ((HomeActivity)getActivity()).SetUpLocationListener(new LocationReadyListener() {
             @Override
@@ -179,6 +183,7 @@ public class HomeSuggestionsFragment extends Fragment {
                                     item.setUrl(responseArray.getJSONObject(i).getString("bannerURL"));
                                     bannerList.add(item);
                                 }
+                                hotelIconListRecyler.setAdapter(new SuggestionHotelIconListAdapter(bannerList));
                             }
                         } catch (JSONException e) {
                             Toast.makeText(getContext(), "Oops! something is not right", Toast.LENGTH_SHORT).show();
