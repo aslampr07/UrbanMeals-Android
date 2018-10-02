@@ -181,6 +181,7 @@ public class HomeSuggestionsFragment extends Fragment {
                                     PromotionBanner item = new PromotionBanner();
                                     item.setHotelCode(responseArray.getJSONObject(i).getString("code"));
                                     item.setUrl(responseArray.getJSONObject(i).getString("bannerURL"));
+                                    item.setName(responseArray.getJSONObject(i).getString("name"));
                                     bannerList.add(item);
                                 }
                                 hotelIconListRecyler.setAdapter(new SuggestionHotelIconListAdapter(bannerList));

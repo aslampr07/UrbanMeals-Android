@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_margin="5dp"
     android:layout_width="80dp"
-    android:layout_height="80dp">
+    android:layout_height="wrap_content">
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/Suggestion_hotelIconImageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="5dp"
-        app:civ_border_color="@color/white"
-        app:civ_border_width="2dp"
+        android:layout_height="80dp"
+        android:elevation="7dp"
         />
-</FrameLayout>
+    <TextView
+        android:id="@+id/Suggestion_hotelIconLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        />
+</LinearLayout>
