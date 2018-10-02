@@ -45,7 +45,6 @@ public class HomeSuggestionsFragment extends Fragment {
 
     private String token;
     private RecyclerView suggestionMainRecycler;
-    private ProgressBar mainLoader;
     private RecyclerView hotelIconListRecyler;
 
     public HomeSuggestionsFragment() {
@@ -73,7 +72,6 @@ public class HomeSuggestionsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         suggestionMainRecycler = view.findViewById(R.id.Suggestion_MainRecycler);
-        mainLoader = view.findViewById(R.id.Suggestion_MainLoading);
         hotelIconListRecyler = view.findViewById(R.id.Suggestion_HotelIconList);
 
         suggestionMainRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -147,7 +145,6 @@ public class HomeSuggestionsFragment extends Fragment {
                                     }
                                     suggestionMainListItem.setSuggestionSubList(subListItem);
                                     placeList.add(suggestionMainListItem);
-                                    mainLoader.setVisibility(View.GONE);
                                 }
                                 suggestionMainRecycler.setAdapter(new SuggestionMainListAdapter(placeList));
                             }

@@ -10,7 +10,6 @@
         android:id="@+id/Suggestion_hotelIconImageView"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:elevation="7dp"
         />
     <TextView
         android:id="@+id/Suggestion_hotelIconLabel"
