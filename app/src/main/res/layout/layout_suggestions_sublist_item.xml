@@ -7,7 +7,7 @@
 
     <android.support.constraint.ConstraintLayout
 
-        android:layout_width="100dp"
+        android:layout_width="85dp"
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:padding="5dp">
@@ -27,7 +27,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#AA000000"
-            android:text="₹ 100"
             android:textAlignment="center"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@id/Suggestion_SubListItemImage" />

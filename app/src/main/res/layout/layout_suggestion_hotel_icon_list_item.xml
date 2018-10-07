@@ -4,12 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_margin="5dp"
-    android:layout_width="80dp"
+    android:layout_width="60dp"
+    android:background="@color/white"
     android:layout_height="wrap_content">
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/Suggestion_hotelIconImageView"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
+        android:elevation="8dp"
         />
     <TextView
         android:id="@+id/Suggestion_hotelIconLabel"
@@ -17,5 +19,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginTop="5dp"
+        android:textSize="12sp"
+        android:ellipsize="end"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
         />
 </LinearLayout>
