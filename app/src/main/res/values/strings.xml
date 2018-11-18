@@ -7,11 +7,8 @@
     <string name="firstname">First Name</string>
     <string name="lastname">Last Name</string>
     <string name="email">Email</string>
-    <string name="mobilenumber">Mobile Number</string>
     <string name="signup">Sign Up</string>
     <string name="acceptterms">By signing up, you agree to the Terms and condition &amp; Privacy policy of UrbanMeals.</string>
-    <string name="enterpin">Enter PIN</string>
-    <string name="didyougetpin">Did you get an OTP? Enter it below and get started now</string>
     <string name="con">Continue</string>
 
     <!-- TODO: Remove or change this placeholder text -->

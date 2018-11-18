@@ -31,22 +31,12 @@ import java.util.Map;
 public class OtpActivity extends AppCompatActivity {
 
 
-    EditText otpInput;
-    private Button skipButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
-
-        skipButton = findViewById(R.id.OTP_SkipButton);
-
-        otpInput = findViewById(R.id.otpInput);
-
-        skipButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String URL = "http://urbanmeals.in/api/1.0/account/login";
+                /*String URL = "http://urbanmeals.in/api/1.0/account/login";
                 StringRequest signInRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String JsonResponse) {
@@ -86,8 +76,7 @@ public class OtpActivity extends AppCompatActivity {
                     }
                 };
                 Volley.newRequestQueue(OtpActivity.this).add(signInRequest);
-            }
-        });
+            }*/
     }
 
     @Override
@@ -96,7 +85,7 @@ public class OtpActivity extends AppCompatActivity {
         //There is no code here because there is no going back from the OTP Page (The user is trapped!!).
     }
 
-    public void ButtonClick(View v) {
+    public void ButtonClick(View v) {/*
         final Editable otp = otpInput.getText();
         final String token = getIntent().getExtras().getString("otpToken");
         final String email = getIntent().getExtras().getString("email");
@@ -178,7 +167,7 @@ public class OtpActivity extends AppCompatActivity {
                 return parameters;
             }
         };
-        Volley.newRequestQueue(this).add(otpRequest);
+        Volley.newRequestQueue(this).add(otpRequest);*/
     }
 }
 

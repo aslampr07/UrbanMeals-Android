@@ -92,6 +92,11 @@ public class SingupActivity extends AppCompatActivity {
 
     }
 
+    public void SignUpButtonClick(View v){
+        Intent i = new Intent(this, OtpActivity.class);
+        startActivity(i);
+
+    }
 
     public void SignUpClick(View v) {
         //Check the validation here.
