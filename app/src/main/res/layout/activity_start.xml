@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity"
+    android:background="@drawable/start_background"
+    android:paddingTop="50dp"
+    android:paddingBottom="50dp"
+    android:paddingRight="30dp"
+    android:paddingLeft="30dp"
+    >
+
+    <ImageView
+        android:id="@+id/Start_Logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo"
+        android:transitionName="logoTransition"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/Start_LogoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:letterSpacing="0.12"
+        android:transitionName="logoTextTransition"
+        app:layout_constraintTop_toBottomOf="@id/Start_Logo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <Button
+        android:id="@+id/Start_SignUpButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_strokeroundwhite"
+        android:text="Sign Up"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="20dp"
+        android:onClick="startButtonsClick"
+        app:layout_constraintBottom_toTopOf="@id/Start_LoginUpButton"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <Button
+        android:id="@+id/Start_LoginUpButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_roundwhite"
+        android:text="LOGIN"
+        android:textSize="20sp"
+        android:textColor="@color/urbanMealsRed"
+        android:onClick="startButtonsClick"
+        android:transitionName="loginButtonTransition"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+</android.support.constraint.ConstraintLayout>

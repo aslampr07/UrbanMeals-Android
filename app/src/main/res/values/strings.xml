@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Urban Meals</string>
-    <string name="login">Log in</string>
+    <string name="login">LOGIN</string>
     <string name="loginEmailOrPhone">Email/Phone</string>
     <string name="loginPassword">Password</string>
     <string name="signupText">Don\'t have an account? SignUp</string>

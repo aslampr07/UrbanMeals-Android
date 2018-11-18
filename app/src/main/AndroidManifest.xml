@@ -15,13 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.LoginActivity"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.SingupActivity"
@@ -55,16 +51,23 @@
                 android:resource="@xml/searchable" />
         </activity>
 
-
         <provider
             android:name=".HotelSearchSuggestionProvider"
             android:authorities="com.urbanmeals.client.urbanmeals.HotelSearchSuggestionProvider" />
 
-        <activity android:name=".activities.EditProfileActivity"/>
+        <activity android:name=".activities.EditProfileActivity" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+
+        <activity android:name=".StartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
