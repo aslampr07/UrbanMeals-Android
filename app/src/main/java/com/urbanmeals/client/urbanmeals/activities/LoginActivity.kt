@@ -11,10 +11,8 @@ import android.text.style.ForegroundColorSpan
 import android.transition.Fade
 import android.view.View
 import android.view.Window
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.TextView
+import android.widget.*
+import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
 
 import com.android.volley.Request
 import com.android.volley.Response
@@ -36,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
 
     internal lateinit var userNameBox: EditText
     internal lateinit var passwordBox: EditText
-    internal lateinit var loginButton: Button
+    internal lateinit var loginButton: CircularProgressButton
 
     internal lateinit var tokenPreference: SharedPreferences
 
@@ -65,8 +63,8 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    fun ButtonClicks(v: View) {
-        if (v.id == R.id.Login_loginButton) {
+    fun loginButtonClick(v: View) {
+       /* if (v.id == R.id.Login_loginButton) {
             loginButton.text = ""
             val signinrequest = object : StringRequest(Request.Method.POST, URL, Response.Listener { JsonResponse ->
                 try {
@@ -105,6 +103,7 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
             Volley.newRequestQueue(applicationContext).add(signinrequest)
-        }
+        }*/
+        loginButton.startAnimation()
     }
 }
