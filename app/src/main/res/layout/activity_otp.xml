@@ -6,29 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.urbanmeals.client.urbanmeals.activities.OtpActivity">
 
-    <ImageView
-        android:id="@+id/SignUp_Background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/register_backdrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/background_roundlogo"
-        android:elevation="10dp"
-        android:padding="10dp"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="@+id/SignUp_Background"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/SignUp_Background" />
 
     <View
         android:layout_width="match_parent"

@@ -2,9 +2,6 @@ package com.urbanmeals.client.urbanmeals.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,7 +9,6 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -35,14 +31,7 @@ public class SingupActivity extends AppCompatActivity {
     EditText passwordInput;
     EditText firstNameInput;
     EditText lastNameInput;
-    TextInputLayout passwordLayout;
-    TextInputLayout phoneNumberLayout;
-    TextInputLayout firstNameLayout;
-    TextInputLayout lastNameLayout;
-    TextInputLayout emailLayout;
     Button SignUpButton;
-    ProgressBar SignUpProgress;
-    CoordinatorLayout coordinatorLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,13 +45,6 @@ public class SingupActivity extends AppCompatActivity {
         phoneInput = findViewById(R.id.SignUp_PhoneInput);
         passwordInput = findViewById(R.id.SignUp_PasswordInput);
         SignUpButton = findViewById(R.id.SignUpButton);
-        SignUpProgress = findViewById(R.id.singupProgressBar);
-        passwordLayout = findViewById(R.id.SignUp_PasswordLayout);
-        coordinatorLayout = findViewById(R.id.SignUp_coordinatorLayout);
-        phoneNumberLayout = findViewById(R.id.SignUp_PhoneNumberLayout);
-        firstNameLayout = findViewById(R.id.SignUp_FirstNameLayout);
-        lastNameLayout = findViewById(R.id.SignUp_LastNameLayout);
-        emailLayout = findViewById(R.id.SignUp_EmailLayout);
 
         //To validate the emailInput ID at the client.
         emailInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -103,11 +85,7 @@ public class SingupActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (s.length() < 7) {
-                    passwordLayout.setErrorEnabled(true);
-                    passwordLayout.setError("Too Short!");
                 } else {
-                    passwordLayout.setError(null);
-                    passwordLayout.setErrorEnabled(false);
                 }
             }
         });
@@ -118,7 +96,6 @@ public class SingupActivity extends AppCompatActivity {
     public void SignUpClick(View v) {
         //Check the validation here.
         if (true) {
-            SignUpProgress.setVisibility(View.VISIBLE);
             SignUpButton.setText("");
             String url = "http://urbanmeals.in/api/1.0/account/register";
             StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -140,28 +117,21 @@ public class SingupActivity extends AppCompatActivity {
                         }
                         //The Errors are handled here.
                         else {
-                            SignUpProgress.setVisibility(View.GONE);
                             SignUpButton.setText(R.string.signup);
                             JSONArray item = response.getJSONArray("type");
                             for (int i = 0; i < item.length(); i++) {
                                 switch (item.getInt(i)) {
                                     case 101:
-                                        phoneNumberLayout.setError("This number already exist");
                                         break;
                                     case 104:
-                                        firstNameLayout.setError("First name contains illegal characters");
                                         break;
                                     case 105:
-                                        lastNameLayout.setError("Last name contain illegal character");
                                         break;
                                     case 106:
-                                        emailLayout.setError("This E-mail already exist");
                                         break;
                                     case 107:
-                                        emailLayout.setError("Invalid Email");
                                         break;
                                     case 102:
-                                        phoneNumberLayout.setError("Invalid Phone number");
                                     default:
                                         continue;
                                 }
@@ -174,8 +144,6 @@ public class SingupActivity extends AppCompatActivity {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Snackbar.make(coordinatorLayout, "Cannot connect to network", Snackbar.LENGTH_LONG).show();
-                    SignUpProgress.setVisibility(View.GONE);
                     SignUpButton.setText(R.string.signup);
                 }
             }) {

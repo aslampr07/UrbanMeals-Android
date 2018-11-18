@@ -19,6 +19,7 @@ class StartActivity : AppCompatActivity() {
 
 
     private lateinit var loginButton: Button
+    private lateinit var signUpButton: Button
     private lateinit var logo: ImageView
     private lateinit var logoText: TextView
 
@@ -28,6 +29,7 @@ class StartActivity : AppCompatActivity() {
 
 
         loginButton = findViewById(R.id.Start_LoginUpButton)
+        signUpButton = findViewById(R.id.Start_SignUpButton)
         logo = findViewById(R.id.Start_Logo)
         logoText = findViewById(R.id.Start_LogoText)
     }
@@ -45,7 +47,9 @@ class StartActivity : AppCompatActivity() {
             }
             R.id.Start_SignUpButton -> {
                 val i = Intent(this, SingupActivity::class.java)
-                startActivity(i)
+                val pairSignUp = android.support.v4.util.Pair.create<View, String>(signUpButton, "signUpButtonTransition")
+                val option = ActivityOptionsCompat.makeSceneTransitionAnimation(this, pairSignUp)
+                startActivity(i, option.toBundle())
             }
         }
     }

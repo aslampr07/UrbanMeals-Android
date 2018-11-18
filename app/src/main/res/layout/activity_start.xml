@@ -10,8 +10,7 @@
     android:paddingTop="50dp"
     android:paddingBottom="50dp"
     android:paddingRight="30dp"
-    android:paddingLeft="30dp"
-    >
+    android:paddingLeft="30dp">
 
     <ImageView
         android:id="@+id/Start_Logo"
@@ -42,11 +41,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_strokeroundwhite"
-        android:text="Sign Up"
+        android:text="@string/signup"
         android:textSize="20sp"
         android:textColor="@color/white"
         android:layout_marginBottom="20dp"
         android:onClick="startButtonsClick"
+        android:transitionName="signUpButtonTransition"
         app:layout_constraintBottom_toTopOf="@id/Start_LoginUpButton"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -56,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_roundwhite"
-        android:text="LOGIN"
+        android:text="@string/login"
         android:textSize="20sp"
         android:textColor="@color/urbanMealsRed"
         android:onClick="startButtonsClick"
