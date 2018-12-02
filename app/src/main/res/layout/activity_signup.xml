@@ -6,18 +6,30 @@
     android:layout_height="match_parent"
     android:background="@drawable/start_background"
     android:orientation="vertical"
-    android:paddingLeft="30dp"
-    android:paddingRight="30dp"
-    android:paddingBottom="20dp"
+    android:paddingLeft="20dp"
     android:paddingTop="50dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="20dp"
     tools:context="com.urbanmeals.client.urbanmeals.signup.SignUpActivity">
+
+    <TextView
+        android:id="@+id/SignUp_CreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create an account"
+        android:textSize="32sp"
+        android:textColor="@color/white"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
 
     <ImageView
         android:id="@+id/SignUp_PersonIcon"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="5dp"
         android:src="@drawable/ic_person_white_48dp"
-        app:layout_constraintBottom_toBottomOf="@id/SignUp_FirstNameLayout"/>
+        app:layout_constraintBottom_toBottomOf="@id/SignUp_FirstNameLayout" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/SignUp_FirstNameLayout"
@@ -25,9 +37,12 @@
         android:layout_height="wrap_content"
         android:hint="@string/firstname"
         android:textColorHint="@color/white"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
         app:layout_constraintLeft_toRightOf="@id/SignUp_PersonIcon"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SignUp_CreateAccount">
+
         <EditText
             android:id="@+id/SignUp_FirstNameInput"
             android:layout_width="match_parent"
@@ -42,13 +57,13 @@
         android:id="@+id/Signup_LastNameLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/lastname"
         android:layout_marginTop="5dp"
+        android:hint="@string/lastname"
         android:textColorHint="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/SignUp_FirstNameLayout"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/SignUp_FirstNameLayout"
-        >
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SignUp_FirstNameLayout">
+
         <EditText
             android:id="@+id/SignUp_LastNameInput"
             android:layout_width="match_parent"
@@ -63,21 +78,23 @@
 
     <ImageView
         android:id="@+id/SignUp_EmailIcon"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="5dp"
         android:src="@drawable/ic_mail_white_48dp"
-        app:layout_constraintBottom_toBottomOf="@id/Signup_EmailLayout"/>
+        app:layout_constraintBottom_toBottomOf="@id/Signup_EmailLayout" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/Signup_EmailLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/email"
         android:layout_marginTop="20dp"
+        android:hint="@string/email"
         android:textColorHint="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/Signup_LastNameLayout"
-        app:layout_constraintLeft_toRightOf="@id/SignUp_EmailIcon"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintLeft_toLeftOf="@id/Signup_LastNameLayout"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Signup_LastNameLayout">
+
         <EditText
             android:id="@+id/SignUp_EmailInput"
             android:layout_width="match_parent"
@@ -91,20 +108,23 @@
 
     <ImageView
         android:id="@+id/SignUp_PasswordIcon"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="5dp"
         android:src="@drawable/ic_lock"
-        app:layout_constraintBottom_toBottomOf="@id/Signup_PasswordLayout"/>
+        app:layout_constraintBottom_toBottomOf="@id/Signup_PasswordLayout" />
+
     <android.support.design.widget.TextInputLayout
         android:id="@+id/Signup_PasswordLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/loginPassword"
         android:layout_marginTop="20dp"
+        android:hint="@string/loginPassword"
         android:textColorHint="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/Signup_EmailLayout"
+        app:layout_constraintLeft_toLeftOf="@id/Signup_EmailLayout"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/SignUp_PasswordIcon">
+        app:layout_constraintTop_toBottomOf="@id/Signup_EmailLayout">
+
         <EditText
             android:id="@+id/SignUp_PasswordInput"
             android:layout_width="match_parent"
@@ -119,21 +139,23 @@
 
     <ImageView
         android:id="@+id/SignUp_PhoneIcon"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="5dp"
         android:src="@drawable/ic_phone_white_48dp"
-        app:layout_constraintBottom_toBottomOf="@id/SingUp_PhoneLayout"/>
+        app:layout_constraintBottom_toBottomOf="@id/SingUp_PhoneLayout" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/SingUp_PhoneLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Phone"
         android:layout_marginTop="20dp"
+        android:hint="Phone"
         android:textColorHint="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/Signup_PasswordLayout"
+        app:layout_constraintLeft_toLeftOf="@id/Signup_PasswordLayout"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/SignUp_PhoneIcon">
+        app:layout_constraintTop_toBottomOf="@id/Signup_PasswordLayout">
+
         <EditText
             android:id="@+id/SignUp_PhoneInput"
             android:layout_width="match_parent"
@@ -142,7 +164,7 @@
             android:ems="10"
             android:inputType="phone"
             android:textColor="@color/colorAccent"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
     </android.support.design.widget.TextInputLayout>
 
     <TextView
@@ -151,11 +173,10 @@
         android:text="@string/acceptterms"
         android:textAlignment="center"
         android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@id/SingUp_PhoneLayout"
         app:layout_constraintBottom_toTopOf="@id/SignUpButton"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SingUp_PhoneLayout" />
 
     <Button
         android:id="@+id/SignUpButton"
