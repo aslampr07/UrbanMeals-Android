@@ -1,4 +1,4 @@
-package com.urbanmeals.client.urbanmeals.activities;
+package com.urbanmeals.client.urbanmeals.signup;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.urbanmeals.client.urbanmeals.R;
+import com.urbanmeals.client.urbanmeals.activities.OtpActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
