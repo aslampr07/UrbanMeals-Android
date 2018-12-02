@@ -10,7 +10,7 @@
     android:paddingRight="30dp"
     android:paddingBottom="20dp"
     android:paddingTop="50dp"
-    tools:context="com.urbanmeals.client.urbanmeals.signup.SingupActivity">
+    tools:context="com.urbanmeals.client.urbanmeals.signup.SignUpActivity">
 
     <ImageView
         android:id="@+id/SignUp_PersonIcon"
@@ -166,7 +166,6 @@
         android:text="@string/signup"
         android:textColor="@color/colorAccent"
         android:textSize="20sp"
-        android:onClick="SignUpButtonClick"
         android:transitionName="signUpButtonTransition"
         app:layout_constraintBottom_toBottomOf="parent" />
 

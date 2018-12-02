@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.urbanmeals.client.urbanmeals.login.LoginActivity
-import com.urbanmeals.client.urbanmeals.activities.SingupActivity
+import com.urbanmeals.client.urbanmeals.signup.SignUpActivity
 
 class StartActivity : AppCompatActivity() {
 
@@ -42,7 +42,7 @@ class StartActivity : AppCompatActivity() {
                 startActivity(i, option.toBundle())
             }
             R.id.Start_SignUpButton -> {
-                val i = Intent(this, SingupActivity::class.java)
+                val i = Intent(this, SignUpActivity::class.java)
                 val pairSignUp = android.support.v4.util.Pair.create<View, String>(signUpButton, "signUpButtonTransition")
                 val option = ActivityOptionsCompat.makeSceneTransitionAnimation(this, pairSignUp)
                 startActivity(i, option.toBundle())
