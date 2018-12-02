@@ -10,7 +10,7 @@
     android:paddingRight="30dp"
     android:paddingBottom="20dp"
     android:paddingTop="50dp"
-    tools:context="com.urbanmeals.client.urbanmeals.activities.SingupActivity">
+    tools:context="com.urbanmeals.client.urbanmeals.signup.SingupActivity">
 
     <ImageView
         android:id="@+id/SignUp_PersonIcon"
@@ -151,9 +151,11 @@
         android:text="@string/acceptterms"
         android:textAlignment="center"
         android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/SingUp_PhoneLayout"
         app:layout_constraintBottom_toTopOf="@id/SignUpButton"
-        app:layout_constraintRight_toRightOf="@id/SignUpButton"
-        app:layout_constraintLeft_toLeftOf="@id/SignUpButton"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
 
     <Button
         android:id="@+id/SignUpButton"
