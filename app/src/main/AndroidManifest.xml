@@ -20,7 +20,7 @@
 
         </activity>
         <activity
-            android:name=".activities.SingupActivity"
+            android:name=".signup.SingupActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.OtpActivity"
