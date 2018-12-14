@@ -71,7 +71,6 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.Contract {
     }
 
     override fun onSuccess(token: String) {
-        Log.v("urbanmeals", token)
         val editor = preferences.edit()
         editor.putString("token", token)
         editor.apply()
