@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/start_background"
     android:orientation="vertical"
-    android:paddingLeft="20dp"
-    android:paddingTop="50dp"
-    android:paddingRight="20dp"
-    android:paddingBottom="20dp"
+    android:paddingLeft="30dp"
+    android:paddingTop="30dp"
+    android:paddingRight="30dp"
     tools:context="com.urbanmeals.client.urbanmeals.signup.SignUpActivity">
 
     <TextView
@@ -37,7 +37,6 @@
             android:id="@+id/SignUp_FirstNameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorAccent"
             android:inputType="textPersonName"
             android:textColor="@color/urbanMealsRed"
             android:textSize="20sp" />
@@ -138,23 +137,25 @@
         android:text="@string/acceptterms"
         android:textAlignment="center"
         android:textSize="12sp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@id/SignUpButton"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/SingUp_PhoneLayout" />
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <Button
         android:id="@+id/SignUpButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/background_strokeroundwhite"
         android:onClick="signUpButtonClick"
         android:text="@string/signup"
         android:textColor="@color/colorAccent"
         android:textSize="20sp"
+        android:layout_marginBottom="32dp"
         android:transitionName="signUpButtonTransition"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="20dp" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
 
 </android.support.constraint.ConstraintLayout>

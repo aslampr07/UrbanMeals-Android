@@ -51,7 +51,7 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.Contract {
 
     //Implemented methods of the LoginContract
     override fun onUserNameError() {
-        loginButton.stopAnimation()
+        loginButton.revertAnimation()
         Toast.makeText(this, "Username error", Toast.LENGTH_SHORT).show()
     }
 
