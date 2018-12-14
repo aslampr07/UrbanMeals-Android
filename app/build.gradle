@@ -45,6 +45,9 @@ dependencies {
     //for animating button to loading spinner
     implementation 'br.com.simplepass:loading-button-android:1.14.0'
 
+    //Use this item cyclemenu for figma layout in the homescreen.
+    //https://github.com/Cleveroad/CycleMenu
+
 }
 repositories {
     mavenCentral()
