@@ -23,7 +23,7 @@
             android:name=".signup.SignUpActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.OtpActivity"
+            android:name=".otp.OtpActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.HomeActivity"

@@ -1,32 +1,52 @@
-package com.urbanmeals.client.urbanmeals.activities
+package com.urbanmeals.client.urbanmeals.otp
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.urbanmeals.client.urbanmeals.R
+import com.urbanmeals.client.urbanmeals.activities.HomeActivity
 import java.util.ArrayList
 
-class OtpActivity : AppCompatActivity() {
+class OtpActivity : AppCompatActivity(), OtpPresenter.Contract {
+
 
     private var numbers = ""
     private val textOutputView = ArrayList<TextView>()
 
+    private lateinit var login: String
+    private lateinit var password: String
+    private lateinit var token: String
+
+    private lateinit var presenter: OtpPresenter
+
+    private lateinit var preferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_otp)
 
+        setContentView(R.layout.activity_otp)
         textOutputView.add(findViewById(R.id.OTP_TextView1))
         textOutputView.add(findViewById(R.id.OTP_TextView2))
         textOutputView.add(findViewById(R.id.OTP_TextView3))
         textOutputView.add(findViewById(R.id.OTP_TextView4))
+
+        login = intent.extras["login"] as String
+        password = intent.extras["password"] as String
+        token = intent.extras["token"] as String
+
+        preferences = getSharedPreferences("credentials", Context.MODE_PRIVATE)
+
+        presenter = OtpPresenter(this, this)
     }
 
     override fun onBackPressed() {
-
+            //This is method is empty to stop the user from going back
     }
 
     private fun writeTextView(num: String) {
@@ -43,7 +63,8 @@ class OtpActivity : AppCompatActivity() {
                 numbers += num
                 textOutputView[numbers.length - 1].text = numbers.last().toString()
                 if (numbers.length == 4) {
-                    Toast.makeText(this, "Getting the result", Toast.LENGTH_SHORT).show()
+                    //calling presenter and verify
+                    presenter.verify(numbers, token)
                 }
             }
         }
@@ -65,4 +86,22 @@ class OtpActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onOtpSuccess() {
+        presenter.login(login, password)
+    }
+
+    override fun onOtpError() {
+        Toast.makeText(this, "OTP Error", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onLoginSuccess(token: String) {
+        val editor = preferences.edit()
+        editor.putString("token", token)
+        editor.apply()
+
+        val i = Intent(this, HomeActivity::class.java)
+        startActivity(i)
+    }
+
 }
