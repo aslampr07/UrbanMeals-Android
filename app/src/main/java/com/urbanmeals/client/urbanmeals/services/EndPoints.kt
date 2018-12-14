@@ -6,4 +6,6 @@ class EndPoints {
     //private val HOSTNAME = "192.168.0.100:8000"
 
     val login = "http://$HOSTNAME/api/1.0/account/login"
+    val signUp = "http://$HOSTNAME/api/1.0/account/register"
+    val verify = "http://$HOSTNAME/api/1.0/account/verify/phone"
 }
