@@ -1,5 +1,6 @@
 package com.urbanmeals.client.urbanmeals
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +9,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import com.urbanmeals.client.urbanmeals.activities.HomeActivity
 import com.urbanmeals.client.urbanmeals.login.LoginActivity
+import com.urbanmeals.client.urbanmeals.otp.OtpActivity
 import com.urbanmeals.client.urbanmeals.signup.SignUpActivity
 
 class StartActivity : AppCompatActivity() {
@@ -20,14 +23,25 @@ class StartActivity : AppCompatActivity() {
     private lateinit var logoText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_start)
+
+        val preferences = getSharedPreferences("credentials", Context.MODE_PRIVATE)
+
+        if(!preferences.contains("token")) {
+            setContentView(R.layout.activity_start)
+            loginButton = findViewById(R.id.Start_LoginUpButton)
+            signUpButton = findViewById(R.id.Start_SignUpButton)
+            logo = findViewById(R.id.Start_Logo)
+            logoText = findViewById(R.id.Start_LogoText)
+        }
+        else{
+            val i = Intent(this, HomeActivity::class.java)
+            startActivity(i)
+        }
 
 
-        loginButton = findViewById(R.id.Start_LoginUpButton)
-        signUpButton = findViewById(R.id.Start_SignUpButton)
-        logo = findViewById(R.id.Start_Logo)
-        logoText = findViewById(R.id.Start_LogoText)
+
     }
 
     fun startButtonsClick(view: View){
