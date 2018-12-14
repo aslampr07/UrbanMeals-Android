@@ -30,9 +30,6 @@
         <activity
             android:name=".activities.HomeActivity"
             android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.default_searchable"
-                android:value=".HotelSearchableActivity" />
         </activity>
         <activity
             android:name=".activities.DigitalMenuActivity"
@@ -43,26 +40,13 @@
         <activity
             android:name=".activities.MealActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.HotelSearchableActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
-        </activity>
-
-        <provider
-            android:name=".HotelSearchSuggestionProvider"
-            android:authorities="com.urbanmeals.client.urbanmeals.HotelSearchSuggestionProvider" />
 
         <activity android:name=".activities.EditProfileActivity" />
+
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
 
         <activity android:name=".StartActivity">
             <intent-filter>

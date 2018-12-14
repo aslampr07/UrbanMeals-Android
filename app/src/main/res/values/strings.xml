@@ -3,13 +3,11 @@
     <string name="login">LOGIN</string>
     <string name="loginEmailOrPhone">Email/Phone</string>
     <string name="loginPassword">Password</string>
-    <string name="signupText">Don\'t have an account? SignUp</string>
     <string name="firstname">First Name</string>
     <string name="lastname">Last Name</string>
     <string name="email">Email</string>
     <string name="signup">Sign Up</string>
     <string name="acceptterms">By signing up, you agree to the Terms and condition &amp; Privacy policy of UrbanMeals.</string>
-    <string name="con">Continue</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

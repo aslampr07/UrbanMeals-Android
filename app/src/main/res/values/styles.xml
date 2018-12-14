@@ -10,12 +10,6 @@
         <item name="android:windowContentTransitions">true</item>
     </style>
 
-    <style name="WarningDialogueTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:colorAccent">@color/urbanMealsRed</item>
-        <item name="android:colorPrimary">@color/urbanMealsGrey</item>
-        <item name="android:colorForeground">@color/urbanMealsRed</item>
-    </style>
-
     <style name="EditProfileEditText" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorControlActivated">@color/urbanMealsRed</item>
         <item name="colorControlNormal">@color/urbanTextOutOfFocus</item>
