@@ -14,12 +14,6 @@ class SignUpActivity : AppCompatActivity(), SignUpPresenter.Contract {
 
     private lateinit var presenter: SignUpPresenter
 
-    private lateinit var firstNameLayout: TextInputLayout
-    private lateinit var lastNameLayout: TextInputLayout
-    private lateinit var emailLayout: TextInputLayout
-    private lateinit var phoneLayout: TextInputLayout
-    private lateinit var passwordLayout: TextInputLayout
-
     private lateinit var firstNameInput: EditText
     private lateinit var lastNameInput: EditText
     private lateinit var emailInput: EditText
@@ -31,11 +25,6 @@ class SignUpActivity : AppCompatActivity(), SignUpPresenter.Contract {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-        firstNameLayout = findViewById(R.id.SignUp_FirstNameLayout)
-        lastNameLayout = findViewById(R.id.Signup_LastNameLayout)
-        emailLayout = findViewById(R.id.Signup_EmailLayout)
-        phoneLayout = findViewById(R.id.SingUp_PhoneLayout)
-        passwordLayout = findViewById(R.id.Signup_PasswordLayout)
 
         firstNameInput = findViewById(R.id.SignUp_FirstNameInput)
         lastNameInput = findViewById(R.id.SignUp_LastNameInput)
@@ -57,23 +46,23 @@ class SignUpActivity : AppCompatActivity(), SignUpPresenter.Contract {
     }
 
     override fun onFirstNameError(error: String) {
-        firstNameLayout.error = error
+        firstNameInput.error = error
     }
 
     override fun onLastNameError(error: String) {
-        lastNameLayout.error = error
+        lastNameInput.error = error
     }
 
     override fun onEmailError(error: String) {
-        emailLayout.error = error
+        emailInput.error = error
     }
 
     override fun onPhoneError(error: String) {
-        phoneLayout.error = error
+        phoneInput.error = error
     }
 
     override fun onPasswordError(error: String) {
-        passwordLayout.error = error
+        passwordInput.error = error
     }
 
     override fun onSuccess(login: String, password: String, otpToken: String) {

@@ -10,7 +10,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.urbanmeals.client.urbanmeals.R
-import com.urbanmeals.client.urbanmeals.activities.HomeActivity
+import com.urbanmeals.client.urbanmeals.home.HomeActivity
+import es.dmoral.toasty.Toasty
 import java.util.ArrayList
 
 class OtpActivity : AppCompatActivity(), OtpPresenter.Contract {
@@ -88,11 +89,12 @@ class OtpActivity : AppCompatActivity(), OtpPresenter.Contract {
     }
 
     override fun onOtpSuccess() {
+        Toasty.success(this, "Success", Toast.LENGTH_SHORT, true).show()
         presenter.login(login, password)
     }
 
     override fun onOtpError() {
-        Toast.makeText(this, "OTP Error", Toast.LENGTH_SHORT).show()
+        Toasty.error(this, "Please check the OTP Again", Toast.LENGTH_LONG, true).show()
     }
 
     override fun onLoginSuccess(token: String) {

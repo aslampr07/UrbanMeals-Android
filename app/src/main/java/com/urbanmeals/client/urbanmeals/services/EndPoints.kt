@@ -8,4 +8,6 @@ class EndPoints {
     val login = "http://$HOSTNAME/api/1.0/account/login"
     val signUp = "http://$HOSTNAME/api/1.0/account/register"
     val verify = "http://$HOSTNAME/api/1.0/account/verify/phone"
+    val nearbyList = "$HOSTNAME/api/restaurant/nearby"
+    val profile = "$HOSTNAME/api/1.0/profile"
 }

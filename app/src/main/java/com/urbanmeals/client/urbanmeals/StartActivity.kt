@@ -9,9 +9,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import com.urbanmeals.client.urbanmeals.activities.HomeActivity
+import com.urbanmeals.client.urbanmeals.home.HomeActivity
 import com.urbanmeals.client.urbanmeals.login.LoginActivity
-import com.urbanmeals.client.urbanmeals.otp.OtpActivity
 import com.urbanmeals.client.urbanmeals.signup.SignUpActivity
 
 class StartActivity : AppCompatActivity() {

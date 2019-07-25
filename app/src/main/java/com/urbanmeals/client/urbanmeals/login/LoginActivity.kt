@@ -5,13 +5,13 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
 import com.urbanmeals.client.urbanmeals.R
-import com.urbanmeals.client.urbanmeals.activities.HomeActivity
+import com.urbanmeals.client.urbanmeals.home.HomeActivity
+import es.dmoral.toasty.Toasty
 
 class LoginActivity : AppCompatActivity(), LoginPresenter.Contract {
 
@@ -52,22 +52,24 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.Contract {
     //Implemented methods of the LoginContract
     override fun onUserNameError() {
         loginButton.revertAnimation()
-        Toast.makeText(this, "Username error", Toast.LENGTH_SHORT).show()
+        Toasty.error(this, "Email / Phone not found", Toast.LENGTH_LONG, true).show()
     }
 
     override fun onUserNameEmpty() {
         loginButton.revertAnimation()
-        Toast.makeText(this, "Username is empty", Toast.LENGTH_SHORT).show()
+        Toasty.error(this, "Fields cannot be empty", Toast.LENGTH_LONG, true).show()
+
     }
 
     override fun onPasswordEmpty() {
         loginButton.revertAnimation()
-        Toast.makeText(this, "Password is empty", Toast.LENGTH_SHORT).show()
+        Toasty.error(this, "Fields cannot be empty", Toast.LENGTH_LONG, true).show()
     }
 
     override fun onPasswordError() {
         loginButton.revertAnimation()
-        Toast.makeText(this, "Password error", Toast.LENGTH_SHORT).show()
+        Toasty.error(this, "Password is incorrect", Toast.LENGTH_LONG, true).show()
+
     }
 
     override fun onSuccess(token: String) {

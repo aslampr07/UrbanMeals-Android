@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".home.fragments.nearby.NearbyFragment"
+    android:layout_marginTop="32dp"
+    >
+
+    <TextSwitcher
+        android:id="@+id/Nearby_PlaceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KALAMASSERY"
+        android:layout_marginLeft="32dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+    </TextSwitcher>
+
+    <TextView
+        android:id="@+id/Nearby_DistanceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_homedistance"
+        android:text="1.2KM"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        app:layout_constraintTop_toTopOf="@id/Nearby_DistanceLabel"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/Nearby_DistanceLabel"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/Nearby_MainRecyler"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="20sp"
+        app:layout_constraintTop_toBottomOf="@id/Nearby_PlaceLabel"
+        />
+
+    <TextView
+        android:id="@+id/Nearby_HotelNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Nearby_MainRecyler"
+        android:text="Hotel UrbanMeals"
+        android:textSize="28sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/Nearby_PlaceLabel"
+        />
+    <TextView
+        android:id="@+id/Nearby_HotelRatingLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Nearby_HotelNameLabel"
+        android:text="5.0"
+        android:textSize="24sp"
+        android:layout_marginTop="12sp"
+        app:layout_constraintLeft_toLeftOf="@id/Nearby_PlaceLabel"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_star"
+        android:scaleType="centerInside"
+        app:layout_constraintTop_toTopOf="@id/Nearby_HotelRatingLabel"
+        app:layout_constraintBottom_toBottomOf="@id/Nearby_HotelRatingLabel"
+        app:layout_constraintLeft_toRightOf="@id/Nearby_HotelRatingLabel"
+        />
+
+    <ImageButton
+        android:id="@+id/Nearby_MenuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/ic_menu_black_24dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintTop_toTopOf="@id/Nearby_HotelRatingLabel"
+        app:layout_constraintBottom_toBottomOf="@id/Nearby_HotelRatingLabel"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <ImageButton
+        android:id="@+id/Nearby_NavigationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/ic_near_me_um_24dp"
+        app:layout_constraintTop_toTopOf="@id/Nearby_HotelRatingLabel"
+        app:layout_constraintBottom_toBottomOf="@id/Nearby_HotelRatingLabel"
+        app:layout_constraintRight_toLeftOf="@id/Nearby_MenuButton"
+        />
+    <ImageButton
+        android:id="@+id/Nearby_PhoneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/ic_phone_umred_24dp"
+        app:layout_constraintTop_toTopOf="@id/Nearby_HotelRatingLabel"
+        app:layout_constraintBottom_toBottomOf="@id/Nearby_HotelRatingLabel"
+        app:layout_constraintRight_toLeftOf="@id/Nearby_NavigationButton"
+        />
+
+    <TextView
+        android:id="@+id/Nearby_HotelDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+        android:layout_marginRight="32dp"
+        android:textSize="15sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/Nearby_HotelRatingLabel"
+        app:layout_constraintLeft_toLeftOf="@id/Nearby_PlaceLabel"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+</android.support.constraint.ConstraintLayout>

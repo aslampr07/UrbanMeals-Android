@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/Home_ProfileMenuItem"
+        android:title="Suggestion" android:icon="@drawable/ic_person"/>
+    <item
+        android:id="@+id/Home_NearbyMenuItem"
+        android:title="home" android:icon="@drawable/ic_location_white_menu"/>
+</menu>
